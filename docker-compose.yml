@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: parakademisi
+      POSTGRES_PASSWORD: parakademisi
+      POSTGRES_DB: parakademisi
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+  timescale:
+    image: timescale/timescaledb:latest-pg15
+    environment:
+      POSTGRES_USER: parakademisi
+      POSTGRES_PASSWORD: parakademisi
+      POSTGRES_DB: parakademisi_events
+    ports:
+      - "5433:5432"
